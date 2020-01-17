@@ -1,8 +1,8 @@
 /*
  * ECE 153B - Winter 2020
  *
- * Name(s):
- * Section:
+ * Name(s): Mason Corey, Andrea Anez
+ * Section: Thurs. 7-9:50PM
  * Lab: 1A
  */
 
@@ -78,16 +78,16 @@ int main() {
 			GPIOE->ODR ^= GPIO_ODR_OD8; //Toggle green LED
 		}
 		if((GPIOA->IDR & GPIO_IDR_IDR_2) == GPIO_IDR_IDR_2)	{
-			//If center button is on, Toggle the red LED
+			//If right button is on, Toggle the red LED
 			GPIOB->ODR ^= GPIO_ODR_OD2; //Toggle red LED
 		}
 		if((GPIOA->IDR & GPIO_IDR_IDR_3) == GPIO_IDR_IDR_3)	{
-			//If center button is on, Set both LEDs to HIGH
+			//If up button is on, Set both LEDs to HIGH
 			GPIOB->ODR |= GPIO_ODR_OD2; //Set red LED to HIGH
 			GPIOE->ODR |= GPIO_ODR_OD8; //Set green LED to HIGH
 		}
 		if((GPIOA->IDR & GPIO_IDR_IDR_5) == GPIO_IDR_IDR_5)	{
-			//If center button is on, Set both LEDs to LOW
+			//If down button is on, Set both LEDs to LOW
 			GPIOB->ODR &= ~GPIO_ODR_OD2; //Set red LED to LOW
 			GPIOE->ODR &= ~GPIO_ODR_OD8; //Set green LED to LOW
 		}
