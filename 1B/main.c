@@ -1,8 +1,8 @@
 /*
  * ECE 153B - Winter 2020
  *
- * Name(s):
- * Section:
+ * Name(s): Mason Corey, Andrea Anez
+ * Section: Thurs. 7-9:50PM
  * Lab: 1B
  */
 
