@@ -12,20 +12,20 @@
 
 void System_Clock_Init(void) {
 	// Select MSI as system clock source
-	RCC->CFGR |= 0; // TODO - Replace with value that will make MSI the system clock source
+	RCC->CFGR |= RCC_CFGR_SW_MSI; // Replace with value that will make MSI the system clock source
 	
 	// Set MSI clock range
 	RCC->CR &= ~RCC_CR_MSIRANGE;
-	RCC->CR |= 0; // TODO - Replace with value that will make range 8 MHz
+	RCC->CR |= RCC_CR_MSIRANGE_7; // TODO - Replace with value that will make range 8 MHz
 	
 	// Use the MSI clock range that is defined in RCC_CR
-	RCC->CR |= 0; // TODO - Replace with value that will select range in RCC->CR
+	RCC->CR |= RCC_CR_MSIRGSEL; // TODO - Replace with value that will select range in RCC->CR
 	
 	// Enable MSI oscillator
-	RCC->CR |= 0; // TODO - Replace with value that will enable MSI
+	RCC->CR |= RCC_CR_MSION; // Replace with value that will enable MSI
 	
 	// Wait until MSI is ready
-	while((RCC->CR & 0 /* TODO - Replace with value that checks whether MSI is ready */) == 0);
+	while((RCC->CR & RCC_CR_MSIRDY /* Replace with value that checks whether MSI is ready */) == 0);
 }
 
 int main() {
@@ -34,7 +34,8 @@ int main() {
 	SysTick_Init();
 	LED_Init();
 	
-	while(1) {
-		// Write Simple Program here...
+	while(1) { //Delay for 1 second and toggle red LED every time
+		delay(1000);
+		Red_LED_Toggle();
 	}
 }
